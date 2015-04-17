@@ -1,0 +1,24 @@
+@blue-colour: #528CE0; //sky blue
+
+.mainWrapper {
+  text-align: center;
+
+  .menuWrapper {
+    display: inline-block;
+    background-color: @blue-colour;
+    width: 500px;
+    height: 500px;
+
+    .menuButton {
+      display: inline-block;
+      width: 120px;
+      height: 50px;
+      font-size: 40px;
+    }
+
+    .playButton {
+      position: relative;
+      top: 60px;
+    }
+  }
+}
