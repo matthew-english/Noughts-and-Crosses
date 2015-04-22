@@ -1,0 +1,21 @@
+<h2>Settings</h2>
+<br>
+<div class="playerSetting">
+    <h3>Player 1</h3>
+    <select ng-model="player1Type">
+        <option value="human" selected>HUMAN</option>
+        <option value="random">EASY</option>
+        <option value="pre-trained">HARD</option>
+    </select>
+</div>
+<br>
+<div class="playerSetting">
+    <h3>Player 2</h3>
+    <select ng-model="player2Type">
+        <option value="human">HUMAN</option>
+        <option value="random" selected>EASY</option>
+        <option value="pre-trained">HARD</option>
+    </select>
+</div>
+
+<Button class="menuButton bottomButton" ng-click="setupBoard(player1Type, player2Type)">PLAY</button>

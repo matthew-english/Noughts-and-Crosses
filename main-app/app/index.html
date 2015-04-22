@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="Tombola.NoughtsAndCrosses">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Noughts and Crosses</title>
+    <link rel="stylesheet" href="css/main.min.css" type="text/css">
+</head>
+<body>
+
+    <script rel="script" type="text/javascript" src="../thirdparty/angular/angular.min.js"></script>
+    <script rel="script" type="text/javascript" src="../thirdparty/angular-route/angular-route.min.js"></script>
+    <script rel="script" type="text/javascript" src="scripts/app.js"></script>
+
+    <div class="mainWrapper" ng-controller="MainController">
+        <h1>Noughts and Crosses</h1>
+        <div class="gameWrapper" ng-view></div>
+    </div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 
     module.exports = {
         html: {
-            files: ['./main-app/**/app/*.html'],
+            files: ['./main-app/app/**/*.html'],
             tasks: ['clean:html', 'copy:html']
         },
 

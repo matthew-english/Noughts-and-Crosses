@@ -4,7 +4,7 @@
     module.exports = {
             html:{
                 cwd:'',
-                    src: ['main-app/**/app/*.html'],
+                    src: ['main-app/app/**/*.html'],
                     dest: '.build/',
                     expand: true
             },

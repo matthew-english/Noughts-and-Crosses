@@ -1,24 +1,61 @@
-@blue-colour: #528CE0; //sky blue
+@blue-colour: #528CE0; //navy blue
+@light-blue-colour: #52D3E0; // sky blue
 
 .mainWrapper {
   text-align: center;
 
-  .menuWrapper {
+  .gameWrapper {
     display: inline-block;
     background-color: @blue-colour;
-    width: 500px;
+    width: 450px;
     height: 500px;
 
     .menuButton {
       display: inline-block;
-      width: 120px;
       height: 50px;
       font-size: 40px;
     }
 
-    .playButton {
+    .bottomButton {
       position: relative;
+      width: 240px;
+      top: 150px;
+    }
+
+    .middleButton {
+      position: relative;
+      width: 240px;
+      top: 225px;
+    }
+
+    .topButton {
+      position: relative;
+      width: 240px;
       top: 60px;
+    }
+
+    .mainGrid {
+      height: 360px;
+      width: 360px;
+      position: relative;
+      top: 70px;
+      left: 45px;
+
+      tr {
+        width: 360px;
+        height: 120px;
+      }
+
+      td {
+
+        button {
+          width: 120px;
+          height: 120px;
+          font-size: 30px;
+          border-color: @light-blue-colour;
+          background-color: @light-blue-colour;
+        }
+      }
     }
   }
 }
