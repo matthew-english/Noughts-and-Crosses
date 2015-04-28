@@ -1,18 +1,29 @@
+<div class="winnersOverlay" ng-class="{'winnersOverlayShow': showWinner === true, 'winnersOverlayHide': showWinner === false}">{{winnerText}}</div>
+
 <button class="menuButton topButton" ng-click="settings()">NEW GAME</button>
+
+<!--<div class="mainGrid">
+    <div ng-repeat="cell in currentGrid track by $index" ng-if="$index % 3 == 0">
+        <div class="cell" ng-repeat="i in [$index, $index + 1, $index + 2]" ng-if="currentGrid[i] != null">
+            <button <class="image" ng-class="{cross: currentGrid[$index]===1, nought: currentGrid[$index]===2}" ng-disabled="gameOver" ng-click="makeMove($index)"></button>
+        </div>
+    </div>
+</div>-->
+
 <table class="mainGrid">
     <tr>
-        <td><button ng-click="makeMove(0)">{{currentGrid[0]}}</button></td>
-        <td><button ng-click="makeMove(1)">{{currentGrid[1]}}</button></td>
-        <td><button ng-click="makeMove(2)">{{currentGrid[2]}}</button></td>
+        <td><button ng-class="{'image': currentGrid[0]>0, 'cross': currentGrid[0]==playerCross, 'nought': currentGrid[0]==playerNought}" ng-disabled="currentGrid[0]>0 || gameOver" ng-click="makeMove(0)"></button></td>
+        <td><button ng-class="{'image': currentGrid[1]>0, 'cross': currentGrid[1]==playerCross, 'nought': currentGrid[1]==playerNought}" ng-disabled="currentGrid[1]>0 || gameOver" ng-click="makeMove(1)"></button></td>
+        <td><button ng-class="{'image': currentGrid[2]>0, 'cross': currentGrid[2]==playerCross, 'nought': currentGrid[2]==playerNought}" ng-disabled="currentGrid[2]>0 || gameOver" ng-click="makeMove(2)"></button></td>
     </tr>
     <tr>
-        <td><button ng-click="makeMove(3)">{{currentGrid[3]}}</button></td>
-        <td><button ng-click="makeMove(4)">{{currentGrid[4]}}</button></td>
-        <td><button ng-click="makeMove(5)">{{currentGrid[5]}}</button></td>
+        <td><button ng-class="{'image': currentGrid[3]>0, 'cross': currentGrid[3]==playerCross, 'nought': currentGrid[3]==playerNought}" ng-disabled="currentGrid[3]>0 || gameOver" ng-click="makeMove(3)"></button></td>
+        <td><button ng-class="{'image': currentGrid[4]>0, 'cross': currentGrid[4]==playerCross, 'nought': currentGrid[4]==playerNought}" ng-disabled="currentGrid[4]>0 || gameOver" ng-click="makeMove(4)"></button></td>
+        <td><button ng-class="{'image': currentGrid[5]>0, 'cross': currentGrid[5]==playerCross, 'nought': currentGrid[5]==playerNought}" ng-disabled="currentGrid[5]>0 || gameOver" ng-click="makeMove(5)"></button></td>
     </tr>
     <tr>
-        <td><button ng-click="makeMove(6)">{{currentGrid[6]}}</button></td>
-        <td><button ng-click="makeMove(7)">{{currentGrid[7]}}</button></td>
-        <td><button ng-click="makeMove(8)">{{currentGrid[8]}}</button></td>
+        <td><button ng-class="{'image': currentGrid[6]>0, 'cross': currentGrid[6]==playerCross, 'nought': currentGrid[6]==playerNought}" ng-disabled="currentGrid[6]>0 || gameOver" ng-click="makeMove(6)"></button></td>
+        <td><button ng-class="{'image': currentGrid[7]>0, 'cross': currentGrid[7]==playerCross, 'nought': currentGrid[7]==playerNought}" ng-disabled="currentGrid[7]>0 || gameOver" ng-click="makeMove(7)"></button></td>
+        <td><button ng-class="{'image': currentGrid[8]>0, 'cross': currentGrid[8]==playerCross, 'nought': currentGrid[8]==playerNought}" ng-disabled="currentGrid[8]>0 || gameOver" ng-click="makeMove(8)"></button></td>
     </tr>
 </table>

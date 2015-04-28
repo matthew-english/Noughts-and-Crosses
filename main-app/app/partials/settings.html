@@ -7,15 +7,19 @@
         <option value="random">EASY</option>
         <option value="pre-trained">HARD</option>
     </select>
+    <select ng-model="player1Icon">
+        <option>Noughts</option>
+        <option>Crosses</option>
+    </select>
 </div>
 <br>
 <div class="playerSetting">
     <h3>Player 2</h3>
     <select ng-model="player2Type">
         <option value="human">HUMAN</option>
-        <option value="random" selected>EASY</option>
+        <option value="random">EASY</option>
         <option value="pre-trained">HARD</option>
     </select>
 </div>
 
-<Button class="menuButton bottomButton" ng-click="setupBoard(player1Type, player2Type)">PLAY</button>
+<Button class="menuButton bottomButton" ng-click="setupBoard(player1Type, player2Type, player1Icon)">PLAY</button>
