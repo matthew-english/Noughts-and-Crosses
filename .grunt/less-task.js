@@ -18,7 +18,7 @@
             expand:true,
             cwd:'main-app/app/less',
             dest:'.build/main-app/app/css',
-            src:'main',
+            src:'*',
             ext:'.min.css'
         }
     };
