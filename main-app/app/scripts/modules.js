@@ -1,4 +1,4 @@
 (function() {
     'use strict';
-    angular.module('Tombola.NoughtsAndCrosses', ['ngRoute']);
+    angular.module('Tombola.NoughtsAndCrosses', ['ngRoute', 'ngAnimate']);
 }());

@@ -31,23 +31,53 @@
     .topButton {
       position: relative;
       width: 240px;
-      top: 60px;
+      top: 10px;
+    }
+
+    .winnersOverlay {
+      position: relative;
+      left: 50px;
+      top: 10px;
+      width: 350px;
+      height: 40px;
+      z-index: 5;
+      background-color: @light-blue-colour;
+      box-shadow: 0 0 5px 5px;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .winnersOverlayHide {
+      opacity: 0;
+    }
+
+    .winnersOverlayShow {
+      opacity: 1;
     }
 
     .mainGrid {
       height: 360px;
       width: 360px;
       position: relative;
-      top: 70px;
-      left: 45px;
+      top: 20px;
+      left: 40px;
 
-      tr {
-        width: 360px;
-        height: 120px;
+      .image {
+        background-image: url("../images/xo.png");
+        background-size: 236px 116px;
+        //height: 120px;
+        //width: 120px;
+      }
+
+      .nought {
+        background-position: 117px 0;
+      }
+
+      .cross {
+        background-position: 0 0;
       }
 
       td {
-
         button {
           width: 120px;
           height: 120px;
