@@ -34,14 +34,14 @@
                         }
                     }
                     else if(playerNum===2){
-                        for (var i = 0; i < me.playerTypes.length; i++) {
-                            if (me.playerTypes[i].value === me.player2Type) {
+                        for (var j = 0; j < me.playerTypes.length; j++) {
+                            if (me.playerTypes[j].value === me.player2Type) {
                                 return true;
                             }
                         }
                     }
                     return false;
-                }
+                };
 
                 me.setupBoard = function (player1Type, player2Type, player1Icon) {
                     if (player1Icon == "Crosses") {
@@ -121,6 +121,6 @@
                     };
             };
 
-            return new Model;
+            return new Model();
         }]);
 })();

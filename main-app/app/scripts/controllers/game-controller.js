@@ -1,10 +1,9 @@
 (function() {
     'use strict';
     angular.module('Tombola.NoughtsAndCrosses')
-        .controller('MainController', ['$scope', '$location', 'GameModel', 'Audio', function ($scope, $location, GameModel, Audio) {
+        .controller('MainController', ['$scope', '$location', 'GameModel', 'Audio', function ($scope, $location, GameModel, audio) {
 
             $scope.model = GameModel;
-            var audio = Audio;
             var numThemes = 3;
 
             $scope.currentTheme = 1; //standard theme
