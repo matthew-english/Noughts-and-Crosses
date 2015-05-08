@@ -1,25 +1,21 @@
-<h2>Settings</h2>
+<h2 class="headerColour">Settings</h2>
 <br>
-<div class="playerSetting">
+<div class="playerSetting headerColour">
     <h3>Player 1</h3>
-    <select ng-model="player1Type">
-        <option value="human" selected>HUMAN</option>
-        <option value="random">EASY</option>
-        <option value="pre-trained">HARD</option>
+    <select ng-model="model.player1Type" ng-options="type.value as type.name for type in model.playerTypes">
+        <option value="">-- choose player type --</option>
     </select>
-    <select ng-model="player1Icon">
+    <select ng-model="model.player1Icon">
         <option>Noughts</option>
         <option>Crosses</option>
     </select>
 </div>
 <br>
-<div class="playerSetting">
+<div class="playerSetting headerColour">
     <h3>Player 2</h3>
-    <select ng-model="player2Type">
-        <option value="human">HUMAN</option>
-        <option value="random">EASY</option>
-        <option value="pre-trained">HARD</option>
+    <select ng-model="model.player2Type" ng-options="type.value as type.name for type in model.playerTypes">
+        <option value="">-- choose player type --</option>
     </select>
 </div>
 
-<Button class="menuButton bottomButton" ng-click="setupBoard(player1Type, player2Type, player1Icon)">PLAY</button>
+<Button class="menuButton bottomButton" ng-click="model.setupBoard()" ng-disabled="!model.canPlay()">PLAY</button>

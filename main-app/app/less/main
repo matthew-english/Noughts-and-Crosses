@@ -1,12 +1,98 @@
-@blue-colour: #528CE0; //navy blue
-@light-blue-colour: #52D3E0; // sky blue
+@shadow-colour: #00008b; // dark blue
+@font-colour: #00008b; // dark blue
+@game-bg-colour: #528CE0; // navy blue
+@cell-colour: #5fdaff; // sky blue
+@winners-bg-colour: #5fdaff; // sky blue
+@window-bg-colour: #B4CADA; // grey-blue
+
+@cell-length:120px;
+@numberOfThemes: 3; //controls theme loop
+
+.themeDefs(1) {
+  @shadow-colour: #00008b; // dark blue
+  @font-colour: #00008b; // dark blue
+  @game-bg-colour: #528CE0; // navy blue
+  @cell-colour: #5fdaff; // sky blue
+  @winners-bg-colour: #5fdaff; // sky blue
+  @window-bg-colour: #B4CADA; // grey-blue
+}
+
+.themeDefs(2) {
+  @shadow-colour: #F2DA24; // dark orange
+  @font-colour: #DBC51F; // dark orange
+  @game-bg-colour: #FFE736; // orange
+  @cell-colour: #FFFB00; // yellow
+  @winners-bg-colour: #FFFB00; // yellow
+  @window-bg-colour: #EFFAB6; // lime
+}
+
+.themeDefs(3) {
+  @shadow-colour: #C90E0E; // dark blue
+  @font-colour: #C90E0E; // dark blue
+  @game-bg-colour: #F72020; // navy blue
+  @cell-colour: #FF5454; // sky blue
+  @winners-bg-colour: #FF5454; // sky blue
+  @window-bg-colour: #E3A6A6; // grey-blue
+}
+
+
+body {
+//  background-color: @window-bg-colour;
+  font-family: HelveticaNeue, arial, helvetica, clean, sans-serif;
+}
 
 .mainWrapper {
   text-align: center;
+  .headerColour {
+//    color: @font-colour;
+  }
+
+  .mainHeading {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 400px;
+    height: 40px;
+    font-size: 30px;
+    font-weight: bold;
+
+    button{
+      border: none;
+      box-shadow: none;
+      top: 0;
+    }
+//    color: @font-colour;
+//    background-color: @game-bg-colour;
+//    box-shadow: 0 0 5px 5px @shadow-colour;
+  }
+
+  .gameWrapper.ng-enter {
+    opacity: 0;
+    transition-delay: 0.2s;
+    transition: 0.2s;
+  }
+  .gameWrapper.ng-enter.ng-enter-active {
+    transition-delay: 0.2s;
+    opacity: 1;
+  }
+  .gameWrapper.ng-leave {
+    opacity: 1;
+    transition: 0.2s;
+  }
+  .gameWrapper.ng-leave.ng-leave-active {
+    opacity: 0;
+  }
 
   .gameWrapper {
     display: inline-block;
-    background-color: @blue-colour;
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translate(-50%);
+//    background-color: @game-bg-colour;
+//    box-shadow: 0 0 5px 5px @shadow-colour;
     width: 450px;
     height: 500px;
 
@@ -14,6 +100,7 @@
       display: inline-block;
       height: 50px;
       font-size: 40px;
+      color: @font-colour;
     }
 
     .bottomButton {
@@ -31,42 +118,48 @@
     .topButton {
       position: relative;
       width: 240px;
-      top: 10px;
+      top: 20px;
     }
 
     .winnersOverlay {
-      position: relative;
-      left: 50px;
-      top: 10px;
+      position: fixed;
       width: 350px;
       height: 40px;
-      z-index: 5;
-      background-color: @light-blue-colour;
+      left: 50%;
+      top: 30%;
+      transform: translate(-50%, -50%);
+//      background-color: @winners-bg-colour;
       box-shadow: 0 0 5px 5px;
       font-size: 30px;
       text-align: center;
     }
 
     .winnersOverlayHide {
+      transition: 0.5s;
       opacity: 0;
+      z-index: -1;
     }
 
     .winnersOverlayShow {
+      transition: 0.5s;
       opacity: 1;
+      z-index: 5;
     }
 
     .mainGrid {
-      height: 360px;
-      width: 360px;
+      height: @cell-length*3;
+      width: @cell-length*3;
       position: relative;
-      top: 20px;
+      top: 30px;
       left: 40px;
 
       .image {
+        //transition: 0.5s;
+        //opacity: 0;
         background-image: url("../images/xo.png");
         background-size: 236px 116px;
-        //height: 120px;
-        //width: 120px;
+        //height: @cell-length;
+        //width: @cell-length;
       }
 
       .nought {
@@ -78,14 +171,79 @@
       }
 
       td {
+//        button.image {
+//          //opacity: 1;
+//          //transition: 0.2s;
+//        }
+
         button {
-          width: 120px;
-          height: 120px;
+          //opacity: 0;
+//          width: @cell-length;
+//          height: @cell-length;
           font-size: 30px;
-          border-color: @light-blue-colour;
-          background-color: @light-blue-colour;
+//          border-color: @cell-colour;
+//          background-color: @cell-colour;
         }
       }
     }
   }
 }
+
+
+.buildThemes(@index) when (@index < (@numberOfThemes + 1)) {
+
+  .theme-@{index} {
+    .themeDefs(@index);
+
+    background-color: @window-bg-colour;
+
+    .mainWrapper {
+      .headerColour {
+        color: @font-colour;
+      }
+
+      .mainHeading {
+        color: @font-colour;
+        background-color: @game-bg-colour;
+        box-shadow: 0 0 5px 5px @shadow-colour;
+
+        button{
+          box-shadow: none;
+        }
+      }
+
+      .gameWrapper {
+        background-color: @game-bg-colour;
+        box-shadow: 0 0 5px 5px @shadow-colour;
+
+        .menuButton {
+          color: @font-colour;
+        }
+
+        .winnersOverlay {
+          background-color: @winners-bg-colour;
+        }
+
+        .mainGrid {
+
+          td {
+            button {
+              //opacity: 0;
+              width: @cell-length;
+              height: @cell-length;
+              border-color: @cell-colour;
+              background-color: @cell-colour;
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+    .buildThemes(@index + 1);
+}
+//stop loop
+.buildThemes(@index) {}
+//start theme building loop
+.buildThemes(1);

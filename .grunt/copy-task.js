@@ -14,7 +14,12 @@
                     dest: '.build/main-app/thirdparty',
                     expand: true
             },
-            resources:{},
+            resources:{
+                cwd:'',
+                    src: ['main-app/app/resources/**/*.*'],
+                    dest: '.build/',
+                    expand: true
+            },
             views:{},
             images:{
                 cwd:'',
