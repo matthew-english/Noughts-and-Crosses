@@ -5,7 +5,7 @@
     <title>Noughts and Crosses</title>
     <link rel="stylesheet" href="css/main.min.css" type="text/css">
 </head>
-<body ng-class="{'theme-1': currentTheme===1, 'theme-2': currentTheme===2, 'theme-3': currentTheme===3}"  ng-controller="MainController">
+<body ng-class="model.theme.currentTheme"  ng-controller="MainController">
 
     <script rel="script" type="text/javascript" src="../thirdparty/angular/angular.min.js"></script>
     <script rel="script" type="text/javascript" src="../thirdparty/angular-route/angular-route.min.js"></script>
@@ -14,7 +14,7 @@
 
     <div class="mainWrapper">
         <div class="mainHeading">
-            <button class="mainHeading headingButton" ng-click="changeTheme()">Noughts and Crosses</button>
+            <button class="mainHeading headingButton" ng-click="model.theme.changeTheme()">Noughts and Crosses</button>
         </div>
         <br>
         <div class="gameWrapper" ng-view></div>

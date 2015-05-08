@@ -3,7 +3,7 @@
 
     angular.module('Tombola.NoughtsAndCrosses.Providers')
         .service('Audio', function () {
-            var audio = function(){
+            var MyAudio = function(){
                 var me = this;
 
                 var move = new Audio('resources/sounds/blopMark.mp3');
@@ -23,6 +23,6 @@
                 };
             };
 
-            return new audio();
+            return new MyAudio();
         });
 })();

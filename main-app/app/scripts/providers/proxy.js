@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('Tombola.NoughtsAndCrosses.Providers')
+    angular.module('Tombola.NoughtsAndCrosses.Providers.Proxy')
         .service('Proxy', function($http, ProxyConstants) {
             var proxy = {};
             var constant = ProxyConstants;

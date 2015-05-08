@@ -2,18 +2,17 @@
     'use strict';
 
     angular.module('Tombola.NoughtsAndCrosses.Providers')
-        .factory('GameModel',['$http', '$timeout', '$location', 'Proxy', 'Audio', function($http, $timeout, $location, proxy, audio) {
+        .factory('GameModel',['$http', '$timeout', '$location', 'Proxy', 'Audio', 'Theme', function($http, $timeout, $location, proxy, audio, theme) {
             var Model = function() {
                 var me = this;
+
+                me.theme = theme;
 
                 me.currentGrid = [[{key: "0", value: "0"}, {key: "1", value: "0"}, {key: "2", value: "0"}],
                     [{key: "3", value: "0"}, {key: "4", value: "0"}, {key: "5", value: "0"}],
                     [{key: "6", value: "0"}, {key: "7", value: "0"}, {key: "8", value: "0"}]];
 
-                me.playerTypes = [{name: "HUMAN", value: "human"}, {name: "EASY", value: "random"}, {
-                    name: "HARD",
-                    value: "pre-trained"
-                }];
+                me.playerTypes = [{name: "HUMAN", value: "human"}, {name: "EASY", value: "random"}, {name: "HARD",value: "pre-trained"}];
                 me.player1Type = "";
                 me.player2Type = "";
 
@@ -25,17 +24,28 @@
                 me.showWinner = false;
                 me.winnerText = "";
 
-                me.isPlayerTypeValid = function(playerNum){
+                me.canPlay = function(){
+                    if(isPlayerTypeValid(1)){
+                        if(isPlayerTypeValid(2)){
+                            return true;
+                        }
+                    }
+                    return false;
+                };
+
+                var isPlayerTypeValid = function(playerNum){
+                    var i=0;
+                    var playerTypesNum = me.playerTypes.length;
                     if(playerNum===1){
-                        for (var i = 0; i < me.playerTypes.length; i++) {
+                        for (i = 0; i < playerTypesNum; i++) {
                             if (me.playerTypes[i].value === me.player1Type) {
                                 return true;
                             }
                         }
                     }
                     else if(playerNum===2){
-                        for (var j = 0; j < me.playerTypes.length; j++) {
-                            if (me.playerTypes[j].value === me.player2Type) {
+                        for (i = 0; i < playerTypesNum; i++) {
+                            if (me.playerTypes[i].value === me.player2Type) {
                                 return true;
                             }
                         }
@@ -43,8 +53,8 @@
                     return false;
                 };
 
-                me.setupBoard = function (player1Type, player2Type, player1Icon) {
-                    if (player1Icon == "Crosses") {
+                me.setupBoard = function () {
+                    if (me.player1Icon == "Crosses") {
                         me.playerCross = 1;
                         me.playerNought = 2;
                     }
@@ -53,7 +63,7 @@
                         me.playerNought = 1;
                     }
 
-                    proxy.setupBoard({player1: player1Type, player2: player2Type})
+                    proxy.setupBoard({player1: me.player1Type, player2: me.player2Type})
                         .success(function (data, status, headers, config) {
                             $location.path("/game");
                             me.showWinner = false;

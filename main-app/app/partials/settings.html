@@ -18,4 +18,4 @@
     </select>
 </div>
 
-<Button class="menuButton bottomButton" ng-click="startGame(model.player1Type, model.player2Type, model.player1Icon)" ng-disabled="!model.isPlayerTypeValid(1) || !model.isPlayerTypeValid(2)">PLAY</button>
+<Button class="menuButton bottomButton" ng-click="model.setupBoard()" ng-disabled="!model.canPlay()">PLAY</button>
