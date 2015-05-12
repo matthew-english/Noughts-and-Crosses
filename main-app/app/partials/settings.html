@@ -2,10 +2,10 @@
 <br>
 <div class="playerSetting headerColour">
     <h3>Player 1</h3>
-    <select ng-model="model.player1Type" ng-options="type.value as type.name for type in model.playerTypes">
+    <select ng-model="model.playerManager.player1Type" ng-options="value as type for (type, value) in model.playerManager.playerTypes">
         <option value="">-- choose player type --</option>
     </select>
-    <select ng-model="model.player1Icon">
+    <select ng-model="model.playerManager.player1Icon">
         <option>Noughts</option>
         <option>Crosses</option>
     </select>
@@ -13,9 +13,9 @@
 <br>
 <div class="playerSetting headerColour">
     <h3>Player 2</h3>
-    <select ng-model="model.player2Type" ng-options="type.value as type.name for type in model.playerTypes">
+    <select ng-model="model.playerManager.player2Type" ng-options="value as type for (type, value) in model.playerManager.playerTypes">
         <option value="">-- choose player type --</option>
     </select>
 </div>
 
-<Button class="menuButton bottomButton" ng-click="model.setupBoard()" ng-disabled="!model.canPlay()">PLAY</button>
+<Button class="menuButton bottomButton" ng-click="model.setupBoard()" ng-disabled="!model.playerManager.canPlay()">PLAY</button>
