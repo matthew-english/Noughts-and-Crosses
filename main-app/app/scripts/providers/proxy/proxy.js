@@ -7,15 +7,15 @@
                 var me = this;
 
                 me.setupBoard = function (msg) {
-                    return post(constant.newGameURL, msg, {withCredentials: true});
+                    return post(constant.newGameURL, msg);
                 };
 
                 me.makeMove = function (msg) {
-                    return post(constant.moveURL, msg, {withCredentials: true});
+                    return post(constant.moveURL, msg);
                 };
 
-                var post = function(url, msg, add) {
-                    return $http.post(url, msg, add);
+                var post = function(url, msg) {
+                    return $http.post(url, msg, {withCredentials: true});
                 };
             };
 
