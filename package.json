@@ -12,7 +12,22 @@
     "grunt-contrib-copy": "~0.8.0",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-less": "~1.0.1",
-    "grunt-lesslint": "~1.1.14"
+    "grunt-lesslint": "~1.1.14",
+    "chai": "~2.3.0",
+    "karma": "~0.12.31",
+    "grunt-karma": "~0.10.1",
+    "mocha": "~2.2.4",
+    "grunt-mocha-test": "~0.12.7",
+    "grunt-protractor-runner": "~2.0.0",
+    "karma-chai-plugins": "~0.5.0",
+    "sinon-chai": "~2.7.0",
+    "sinon": "~1.14.1",
+    "karma-chai-sinon": "~0.1.4",
+    "karma-mocha": "~0.1.10",
+    "karma-nyan-reporter": "0.0.60",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "protractor": "~2.0.0",
+    "webdriver-manager": "~5.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

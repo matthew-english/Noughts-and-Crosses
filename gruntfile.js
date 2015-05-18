@@ -6,6 +6,7 @@
     var lessTask = require('./.grunt/less-task');
     var concatTask = require('./.grunt/concat-task');
     var watchTask = require('./.grunt/watch-task');
+    var karmaTask = require('./.grunt/grunt-karma-tasks');
     module.exports = function(grunt){
         grunt.log.writeln("Initialising");
         grunt.initConfig({
@@ -15,7 +16,8 @@
             copy:copyTask,
             less: lessTask,
             concat: concatTask,
-            watch: watchTask
+            watch: watchTask,
+            karma: karmaTask
         });
 
         grunt.log.writeln('Loading NPM Tasks');
@@ -26,6 +28,7 @@
         grunt.loadNpmTasks('grunt-contrib-less');
         grunt.loadNpmTasks('grunt-contrib-concat');
         grunt.loadNpmTasks('grunt-contrib-watch');
+        grunt.loadNpmTasks('grunt-karma');
 
         grunt.log.writeln("Loaded NPM Tasks");
 
