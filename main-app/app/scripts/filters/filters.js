@@ -9,6 +9,7 @@
                 else if (input.playerNum == input.noughtPlayer){
                     return 'image nought';
                 }
+                return '';
             };
         });
 })();
